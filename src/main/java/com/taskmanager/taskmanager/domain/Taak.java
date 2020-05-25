@@ -1,6 +1,8 @@
 package com.taskmanager.taskmanager.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.awt.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -12,6 +14,8 @@ public class Taak {
     private String taak, beschrijving;
     private LocalDate datum;
     private LocalTime tijd;
+    @Id
+    @GeneratedValue
     private String id;
 
     public Taak() {}
@@ -60,6 +64,7 @@ public class Taak {
         this.id = id;
     }
 
+    @Id
     public String getId(){
         return id;
     }

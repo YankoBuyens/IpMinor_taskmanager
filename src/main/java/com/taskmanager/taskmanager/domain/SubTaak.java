@@ -1,10 +1,16 @@
 package com.taskmanager.taskmanager.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class SubTaak {
-    private String taak,beschrijving,id;
+    private String taak,beschrijving;
+
+    @Id
+    @GeneratedValue
+    private String id;
 
 
     public SubTaak(){
