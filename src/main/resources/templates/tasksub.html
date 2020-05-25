@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Taken</title>
+</head>
+<body>
+<h1>New Task</h1>
+
+<div th:if="${subTaak != null}">
+<form method="post" th:object="${subTaak}" action="/tasks/subtaak">
+    <div>
+        <label for="taak">taak: </label>
+        <input type="text" name="taak" id="taak" >
+    </div>
+    <div>
+        <label for="beschrijving">beschrijving: </label>
+        <input type="text" name="beschrijving" id="beschrijving">
+    </div>
+    <input type="hidden" th:field="*{id}" name="id" id="id">
+    <input type="submit" value="New SubTaak">
+</form>
+</div>
+<p th:if="${subTaak == null}">TaakId does not excist</p>
+</body>
+</html>

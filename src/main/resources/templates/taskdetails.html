@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Taken</title>
+</head>
+<body>
+<h1>Taak Detail</h1>
+<table>
+    <div th:if="${taskdetails != null}">
+        <thead>
+        <tr>
+            <th>Taak</th>
+            <th>Beschrijving</th>
+            <th>Datum</th>
+            <th>Tijd</th>
+        </tr>
+        </thead>
+        <tbody>
+            <td th:text="${taskdetails.getTaak()}"></td>
+            <td th:text="${taskdetails.getBeschrijving()}"></td>
+            <td th:text="${taskdetails.getDatum()}"></td>
+            <td th:text="${taskdetails.getTijd()}"></td>
+        </tr>
+        </tbody>
+    </div>
+    <div th:if="${subTaskdetails != null}">
+        <thead>
+        <tr>
+            <th>SubTaak</th>
+            <th>SubBeschrijving</th>
+        </tr>
+        </thead>
+        <tbody>
+        <td th:text="${subTaskdetails.getTaak()}"></td>
+        <td th:text="${subTaskdetails.getBeschrijving()}"></td>
+        </tr>
+        </tbody>
+    </div>
+
+    <p th:if="${taskdetails == null}">Task not Found</p>
+</table>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Taken</title>
+</head>
+<body>
+<h1>New Task</h1>
+
+<form method="post" action="/tasks/new">
+    <div>
+        <label for="taak">taak: </label>
+        <input type="text" name="taak" id="taak" >
+    </div>
+    <div>
+        <label for="beschrijving">beschrijving: </label>
+        <input type="text" name="beschrijving" id="beschrijving">
+    </div>
+    <div>
+        <label for="datum">datum: </label>
+        <input type="date" name="datum" id="datum">
+    </div>
+    <div>
+        <label for="tijd">tijd: </label>
+        <input type="time" name="tijd" id="tijd">
+    </div>
+    <input type="submit" value="New Taak">
+</form>
+</body>
+</html>

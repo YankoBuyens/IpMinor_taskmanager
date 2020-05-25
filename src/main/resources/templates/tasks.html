@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Taken</title>
+</head>
+<body>
+<h1>Taken</h1>
+<table>
+    <div th:if="${!tasks.isEmpty()}">
+    <thead>
+    <tr>
+        <th>Taak</th>
+        <th>Datum</th>
+        <th>Tijd</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="taak : ${tasks}">
+        <td th:text="*{taak.taak}"></td>
+        <td th:text="*{taak.datum}"></td>
+        <td th:text="*{taak.tijd}"></td>
+        <td><a th:href="@{/tasks/{id}/sub/create (id=${taak.id})}">creëer subtask</a></td>
+    </tr>
+    </tbody>
+    </div>
+    <p th:if="${tasks.isEmpty()}">No tasks left to do</p>
+</table>
+</body>
+</html>
