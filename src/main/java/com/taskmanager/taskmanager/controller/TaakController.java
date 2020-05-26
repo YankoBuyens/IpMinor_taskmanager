@@ -30,7 +30,7 @@ public class TaakController {
     }
 
     @GetMapping("tasks/{id}")
-    public String getTaskDetail(@PathVariable (name = "id") int id, Model model){
+    public String getTaskDetail(@PathVariable int id, Model model){
         model.addAttribute("taskdetails",taakService.geefTaak(id));
         model.addAttribute("subTaskdetails",taakService.geefSubTaak(id));
         return "taskdetails" ;
