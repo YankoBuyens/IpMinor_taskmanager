@@ -49,7 +49,7 @@ public class TaakController {
     }
 
     @GetMapping("tasks/update/{id}")
-    public String toonUpdateForm(@PathVariable (name = "id") int id, Model model){
+    public String toonUpdateForm(@PathVariable int id, Model model){
         model.addAttribute("updateTaak",taakService.geefTaak(id));
         return "taskupdate";
     }
@@ -61,7 +61,7 @@ public class TaakController {
     }
 
     @GetMapping("/tasks/{id}/sub/create")
-    public String subTaskForm(@PathVariable (name = "id") int id,Model model){
+    public String subTaskForm(@PathVariable int id,Model model){
         model.addAttribute("subTaak",taakService.geefTaak(id));
         return "tasksub";
     }

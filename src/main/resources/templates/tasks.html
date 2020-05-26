@@ -6,6 +6,10 @@
 </head>
 <body>
 <h1>Taken</h1>
+<ul>
+    <li><a th:href="@{/}">Home</a>
+    <li><a th:href="@{/tasks/new}">Voeg Taak toe</a></li>
+</ul>
 <table>
     <div th:if="${!tasks.isEmpty()}">
     <thead>

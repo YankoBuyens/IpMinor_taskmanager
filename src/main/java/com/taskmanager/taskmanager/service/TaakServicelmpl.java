@@ -88,9 +88,9 @@ public class TaakServicelmpl implements TaakService{
 
     @Override
     public SubTaakDTO geefSubTaak(int id) {
-        for(SubTaakDTO subTaakDTO : this.getSubTaken()){
-            if(subTaakDTO.getId()== id){
-                return subTaakDTO;
+        for(SubTaakDTO taak : this.getSubTaken()){
+            if(taak.getId() == id){
+                return taak;
             }
         }
         return null;
@@ -107,34 +107,6 @@ public class TaakServicelmpl implements TaakService{
         }).collect(Collectors.toList());
     }
 
-  /*  @Override
-    public List<Taak> getTaken(){
-        return taakRepository.getTakenlijst();
-    }
 
-    @Override
-    public void addTaak(TaakDTO taakDTO){
-        Taak taak = new Taak(taakDTO.getTaak(),taakDTO.getBeschrijving(),taakDTO.getDatum(),taakDTO.getTijd(),Integer.toString(id++));
-        taakRepository.voegTaakToe(taak);
-    }
-
-    @Override
-    public Taak geefTaak(String id){return taakRepository.geefTaak(id);}
-
-    @Override
-    public void updateTaak(TaakDTO taakDTO){
-        Taak taak = new Taak(taakDTO.getTaak(),taakDTO.getBeschrijving(),taakDTO.getDatum(),taakDTO.getTijd(),taakDTO.getId());
-        taakRepository.updateTaak(taak);
-    }
-
-    @Override
-    public void addSubTaak(SubTaakDTO subTaakDTO){
-        SubTaak subTaak = new SubTaak(subTaakDTO.getTaak(),subTaakDTO.getBeschrijving(),subTaakDTO.getId());
-        taakRepository.addSubTaak(subTaak);
-    }
-
-    @Override
-    public SubTaak geefSubTaak(String id){return taakRepository.geefSubTaak(id);}
-
-    */
+    
 }
