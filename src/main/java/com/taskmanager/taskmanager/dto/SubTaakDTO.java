@@ -2,7 +2,7 @@ package com.taskmanager.taskmanager.dto;
 
 public class SubTaakDTO {
     private String taak,beschrijving;
-    private int id;
+    private int id, taakId;
 
     public int getId() {
         return id;
@@ -27,4 +27,8 @@ public class SubTaakDTO {
     public void setTaak(String taak) {
         this.taak = taak;
     }
+
+    public void setTaakId(int taakId){this.taakId = taakId;}
+
+    public int getTaakId(){return  taakId;}
 }

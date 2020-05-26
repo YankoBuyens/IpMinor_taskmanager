@@ -7,6 +7,12 @@
 <body>
 <h1>New Task</h1>
 
+<ul>
+    <li><a th:href="@{/}">Home</a>
+    <li><a th:href="@{/tasks}">Overzicht taken</a></li>
+</ul>
+
+
 <form method="post" th:object="${taak}" action="/tasks/new">
     <div>
         <label for="taak">taak: </label>

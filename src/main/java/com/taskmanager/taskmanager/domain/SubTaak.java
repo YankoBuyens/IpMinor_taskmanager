@@ -14,15 +14,18 @@ public class SubTaak {
     @GeneratedValue
     private int id;
 
+    private int taakId;
+
 
     public SubTaak(){
 
     }
 
-    public SubTaak(String taak, String beschrijving, int id){
+    public SubTaak(String taak, String beschrijving, int id,int TaakId){
         setTaak(taak);
         setBeschrijving(beschrijving);
         setId(id);
+        setTaakId(id);
     }
 
     public String getTaak() {
@@ -48,4 +51,8 @@ public class SubTaak {
     public void setId(int id) {
         this.id = id;
     }
+
+    public void setTaakId(int taakId){this.taakId = taakId;}
+
+    public int getTaakId(){return  taakId;}
 }
