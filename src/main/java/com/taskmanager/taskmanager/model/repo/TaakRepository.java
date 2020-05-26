@@ -1,8 +1,7 @@
-package com.taskmanager.taskmanager.repository;
+package com.taskmanager.taskmanager.model.repo;
 
-import com.taskmanager.taskmanager.domain.Taak;
+import com.taskmanager.taskmanager.model.enity.Taak;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.stereotype.Repository;
 
 

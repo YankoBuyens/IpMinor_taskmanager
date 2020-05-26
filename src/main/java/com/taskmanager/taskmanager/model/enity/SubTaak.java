@@ -1,4 +1,4 @@
-package com.taskmanager.taskmanager.domain;
+package com.taskmanager.taskmanager.model.enity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

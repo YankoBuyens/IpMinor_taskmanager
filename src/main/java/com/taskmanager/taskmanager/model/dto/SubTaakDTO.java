@@ -1,4 +1,4 @@
-package com.taskmanager.taskmanager.dto;
+package com.taskmanager.taskmanager.model.dto;
 
 public class SubTaakDTO {
     private String taak,beschrijving;

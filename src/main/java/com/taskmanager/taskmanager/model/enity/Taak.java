@@ -1,12 +1,10 @@
-package com.taskmanager.taskmanager.domain;
+package com.taskmanager.taskmanager.model.enity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.awt.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import javax.validation.constraints.NotEmpty;
 
 @Entity

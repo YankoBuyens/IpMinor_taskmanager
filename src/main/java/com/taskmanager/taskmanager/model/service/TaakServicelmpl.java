@@ -1,16 +1,14 @@
-package com.taskmanager.taskmanager.service;
+package com.taskmanager.taskmanager.model.service;
 
-import com.taskmanager.taskmanager.domain.SubTaak;
-import com.taskmanager.taskmanager.domain.Taak;
-import com.taskmanager.taskmanager.dto.SubTaakDTO;
-import com.taskmanager.taskmanager.dto.TaakDTO;
-import com.taskmanager.taskmanager.repository.SubTaakRepository;
-import com.taskmanager.taskmanager.repository.TaakRepository;
+import com.taskmanager.taskmanager.model.enity.SubTaak;
+import com.taskmanager.taskmanager.model.enity.Taak;
+import com.taskmanager.taskmanager.model.dto.SubTaakDTO;
+import com.taskmanager.taskmanager.model.dto.TaakDTO;
+import com.taskmanager.taskmanager.model.repo.TaakRepository;
+import com.taskmanager.taskmanager.model.repo.SubTaakRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
