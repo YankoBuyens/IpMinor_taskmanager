@@ -1,8 +1,9 @@
 package com.taskmanager.taskmanager.controller;
 
-import com.taskmanager.taskmanager.dto.SubTaakDTO;
-import com.taskmanager.taskmanager.dto.TaakDTO;
-import com.taskmanager.taskmanager.service.TaakService;
+import com.taskmanager.taskmanager.model.dto.SubTaakDTO;
+import com.taskmanager.taskmanager.model.dto.TaakDTO;
+import com.taskmanager.taskmanager.model.service.TaakService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

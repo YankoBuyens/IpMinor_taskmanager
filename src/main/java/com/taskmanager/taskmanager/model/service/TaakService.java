@@ -1,9 +1,7 @@
-package com.taskmanager.taskmanager.service;
+package com.taskmanager.taskmanager.model.service;
 
-import com.taskmanager.taskmanager.domain.SubTaak;
-import com.taskmanager.taskmanager.domain.Taak;
-import com.taskmanager.taskmanager.dto.SubTaakDTO;
-import com.taskmanager.taskmanager.dto.TaakDTO;
+import com.taskmanager.taskmanager.model.dto.SubTaakDTO;
+import com.taskmanager.taskmanager.model.dto.TaakDTO;
 
 import java.util.List;
 
