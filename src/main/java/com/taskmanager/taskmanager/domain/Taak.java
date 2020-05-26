@@ -19,7 +19,7 @@ public class Taak {
     private String id;
 
     public Taak() {}
-//re
+//ress
     public Taak(String taak, String beschrijving, LocalDate datum, LocalTime tijd, String id){
         this.taak = taak;
         this.beschrijving = beschrijving;
