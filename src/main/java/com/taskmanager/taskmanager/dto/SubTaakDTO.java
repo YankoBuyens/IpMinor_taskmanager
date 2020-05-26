@@ -1,13 +1,14 @@
 package com.taskmanager.taskmanager.dto;
 
 public class SubTaakDTO {
-    private String taak,beschrijving,id;
+    private String taak,beschrijving;
+    private int id;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

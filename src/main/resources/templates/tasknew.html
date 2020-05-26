@@ -7,22 +7,22 @@
 <body>
 <h1>New Task</h1>
 
-<form method="post" action="/tasks/new">
+<form method="post" th:object="${taak}" action="/tasks/new">
     <div>
         <label for="taak">taak: </label>
-        <input type="text" name="taak" id="taak" >
+        <input type="text" th:field="*{taak}" name="taak" id="taak" >
     </div>
     <div>
         <label for="beschrijving">beschrijving: </label>
-        <input type="text" name="beschrijving" id="beschrijving">
+        <input type="text" th:field="*{beschrijving}" name="beschrijving" id="beschrijving">
     </div>
     <div>
         <label for="datum">datum: </label>
-        <input type="date" name="datum" id="datum">
+        <input type="date" th:field="*{datum}" name="datum" id="datum">
     </div>
     <div>
         <label for="tijd">tijd: </label>
-        <input type="time" name="tijd" id="tijd">
+        <input type="time"  th:field="*{tijd}" name="tijd" id="tijd">
     </div>
     <input type="submit" value="New Taak">
 </form>

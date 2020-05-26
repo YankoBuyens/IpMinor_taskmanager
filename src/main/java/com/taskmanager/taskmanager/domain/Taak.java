@@ -7,20 +7,20 @@ import java.awt.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Taak {
-    private String taak, beschrijving;
     private LocalDate datum;
     private LocalTime tijd;
     @Id
     @GeneratedValue
-    private String id;
+    private int id;
+    @NotEmpty
+    private String taak, beschrijving;
 
     public Taak() {}
-//Dit zijn de laatste aanpassingen
-    public Taak(String taak, String beschrijving, LocalDate datum, LocalTime tijd, String id){
+    public Taak(String taak, String beschrijving, LocalDate datum, LocalTime tijd, int id){
         this.taak = taak;
         this.beschrijving = beschrijving;
         this.datum = datum;
@@ -60,12 +60,12 @@ public class Taak {
         return tijd;
     }
 
-    public void setId(String id){
+    public void setId(int id){
         this.id = id;
     }
 
     @Id
-    public String getId(){
+    public int getId(){
         return id;
     }
 }

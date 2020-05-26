@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,7 +36,7 @@ public class TaakServicelmpl implements TaakService{
             TaakDTO dto = new TaakDTO();
             dto.setTaak(h.getTaak());
             dto.setBeschrijving(h.getBeschrijving());
-            dto.setDatum(h.getDatum());
+            dto.setDatum(h.getDatum().toString());
             dto.setTijd(h.getTijd());
             dto.setId(h.getId());
             return dto;
@@ -49,14 +50,14 @@ public class TaakServicelmpl implements TaakService{
         taak.setBeschrijving(taakDTO.getBeschrijving());
         taak.setDatum(taakDTO.getDatum());
         taak.setTijd(taakDTO.getTijd());
-        taak.setId(Integer.toString(id++));
+        taak.setId(id++);
         taakRepository.save(taak);
     }
 
     @Override
-    public TaakDTO geefTaak(String id) {
+    public TaakDTO geefTaak(int id) {
         for(TaakDTO taak : this.getTaken()){
-            if(taak.getId().equals(id)){
+            if(taak.getId() == id){
                 return taak;
             }
         }
@@ -65,11 +66,12 @@ public class TaakServicelmpl implements TaakService{
 
     @Override
     public void updateTaak(TaakDTO taakDTO) {
-            Taak taak = taakRepository.getOne(Long.parseLong(taakDTO.getId()));
+            Taak taak = this.taakRepository.getOne(taakDTO.getId());
             taak.setTaak(taakDTO.getTaak());
             taak.setBeschrijving(taakDTO.getBeschrijving());
             taak.setDatum(taakDTO.getDatum());
             taak.setTijd(taakDTO.getTijd());
+            taak.setId(taakDTO.getId());
             this.taakRepository.save(taak);
     }
 
@@ -85,9 +87,9 @@ public class TaakServicelmpl implements TaakService{
     }
 
     @Override
-    public SubTaakDTO geefSubTaak(String id) {
+    public SubTaakDTO geefSubTaak(int id) {
         for(SubTaakDTO subTaakDTO : this.getSubTaken()){
-            if(subTaakDTO.getId().equals(id)){
+            if(subTaakDTO.getId()== id){
                 return subTaakDTO;
             }
         }

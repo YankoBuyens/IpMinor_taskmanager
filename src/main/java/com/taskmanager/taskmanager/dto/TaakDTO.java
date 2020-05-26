@@ -7,7 +7,7 @@ public class TaakDTO {
     private String taak, beschrijving;
     private LocalDate datum;
     private LocalTime tijd;
-    private String id;
+    private int id;
 
     public void setTaak(String taak) {
         this.taak = taak;
@@ -25,8 +25,8 @@ public class TaakDTO {
         return beschrijving;
     }
 
-    public void setDatum(LocalDate datum) {
-       this.datum = datum;
+    public void setDatum(String datum) {
+       this.datum = LocalDate.parse(datum);
     }
 
     public LocalDate getDatum() {
@@ -41,7 +41,7 @@ public class TaakDTO {
         return tijd;
     }
 
-    public void setId(String id){ this.id = id; }
+    public void setId(int id){ this.id = id; }
 
-    public String getId(){ return id; }
+    public int getId(){ return id; }
 }

@@ -12,13 +12,13 @@ public interface TaakService {
 
     void addTaak(TaakDTO taakDTO);
 
-    TaakDTO geefTaak(String id);
+    TaakDTO geefTaak(int id);
 
     void updateTaak(TaakDTO taakDTO);
 
     void addSubTaak(SubTaakDTO subTaakDTO);
 
-    SubTaakDTO geefSubTaak(String id);
+    SubTaakDTO geefSubTaak(int id);
 
     List<SubTaakDTO> getSubTaken();
 }

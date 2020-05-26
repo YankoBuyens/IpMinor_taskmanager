@@ -3,21 +3,23 @@ package com.taskmanager.taskmanager.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class SubTaak {
+    @NotEmpty
     private String taak,beschrijving;
 
     @Id
     @GeneratedValue
-    private String id;
+    private int id;
 
 
     public SubTaak(){
 
     }
 
-    public SubTaak(String taak, String beschrijving, String id){
+    public SubTaak(String taak, String beschrijving, int id){
         setTaak(taak);
         setBeschrijving(beschrijving);
         setId(id);
@@ -39,11 +41,11 @@ public class SubTaak {
         this.beschrijving = beschrijving;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

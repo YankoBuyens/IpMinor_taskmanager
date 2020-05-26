@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface TaakRepository extends JpaRepository<Taak,Long> {
+public interface TaakRepository extends JpaRepository<Taak, Integer> {
 
 }
