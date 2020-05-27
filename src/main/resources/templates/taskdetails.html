@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Taken</title>
@@ -9,7 +9,7 @@
     <ul>
         <li><a th:href="@{/}">Home</a>
         <li><a th:href="@{/tasks}">Overzicht taken</a></li>
-        <li><a th:href="@{/tasks/new}">Voeg Taak toe</a>
+        <a sec:authorize-url="/task/new" th:href="@{/tasks/new}">Voeg Taak toe</a>
     </ul>
 <table>
 
@@ -47,5 +47,8 @@
 
     <p th:if="${taskdetails == null}">Task not Found</p>
 </table>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
 </body>
 </html>

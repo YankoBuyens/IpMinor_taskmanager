@@ -61,7 +61,7 @@ public class TaakController {
         return "redirect:/tasks/"+ taakDTO.getId();
     }
 
-    @GetMapping("/tasks/{id}/sub/create")
+    @GetMapping("tasks/{id}/sub/create")
     public String subTaskForm(@PathVariable int id,Model model){
         model.addAttribute("subTaak",taakService.geefTaak(id));
         return "tasksub";

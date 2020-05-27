@@ -2,23 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Sign in</title>
+    <title>Signup</title>
 </head>
 <body>
-<h1>Sign in</h1>
-<p th:if="${param.logout}">You have succesfully logged out.</p>
-<p th:if="${param.error}">Invalid credentials</p>
-<form th:method="post" th:action="@{/login}">
+<h1>Sign up</h1>
+<form th:method="post" th:action="@{/signup}" th:object="${user}">
+    <p th:if="${!#fields.globalErrors().isEmpty()}" th:text="${#fields.globalErrors()}"></p>
     <div>
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username">
+        <input type="text" th:field="*{username}">
+        <p th:errors="*{username}"></p>
     </div>
     <div>
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
+        <input type="password" th:field="*{password}">
     </div>
-    <input type="submit" value="Sign in">
+    <input type="submit" value="Sign up">
 </form>
-<a th:href="@{/signup}">Sign up</a>
 </body>
 </html>

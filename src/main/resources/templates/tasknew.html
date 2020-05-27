@@ -11,9 +11,12 @@
     <li><a th:href="@{/}">Home</a>
     <li><a th:href="@{/tasks}">Overzicht taken</a></li>
 </ul>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
 
 
-<form method="post" th:object="${taak}" action="/tasks/new">
+<form th:method="post" th:object="${taak}" th:action="@{/tasks/new}">
     <div>
         <label for="taak">taak: </label>
         <input type="text" th:field="*{taak}" name="taak" id="taak" >

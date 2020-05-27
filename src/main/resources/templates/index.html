@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Taken</title>
@@ -8,7 +8,11 @@
 <h1>Index Pagina</h1>
 <ul>
     <li><a th:href="@{/tasks}">Overzicht taken</a></li>
-    <li><a th:href="@{/tasks/new}">Voeg Taak toe</a></li>
+    <li><a sec:authorize-url="/task/new" th:href="@{/tasks/new}">Voeg Taak toe</a></li>
 </ul>
+<a sec:authorize-url="/task/new" th:href="@{/tasks/new}">Voeg Taak toe</a>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
 </body>
 </html>

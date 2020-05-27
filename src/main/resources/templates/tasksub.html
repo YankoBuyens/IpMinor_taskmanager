@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Taken</title>
@@ -9,11 +9,14 @@
 
 <ul>
     <li><a th:href="@{/tasks}">Overzicht taken</a></li>
-    <li><a th:href="@{/tasks/new}">Voeg Taak toe</a></li>
+    <li><a sec:authorize-url="/task/new" th:href="@{/tasks/new}">Voeg Taak toe</a></li>
 </ul>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
 
 <div th:if="${subTaak != null}">
-<form method="post" th:object="${subTaak}" action="/tasks/subtaak">
+<form th:method="post" th:object="${subTaak}" th:action="@{/tasks/subtaak}">
     <div>
         <label for="taak">taak: </label>
         <input type="text" name="taak" id="taak" >

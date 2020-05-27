@@ -23,7 +23,12 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .mvcMatchers("/signup").permitAll()
+                .mvcMatchers("/jdbc:h2:mem:taak").hasAuthority("ADMIN")
                 .mvcMatchers("tasks/new").hasAuthority("ADMIN")
+                .mvcMatchers("tasks/update/{id}").hasAuthority("ADMIN")
+                .mvcMatchers("tasks/update").hasAuthority("ADMIN")
+                .mvcMatchers("tasks/{id}/sub/create").hasAuthority("ADMIN")
+                .mvcMatchers("tasks/subtaak").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
