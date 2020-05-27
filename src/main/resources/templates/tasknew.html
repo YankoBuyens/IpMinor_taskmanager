@@ -8,13 +8,15 @@
 <h1>New Task</h1>
 
 <ul>
-    <li><a th:href="@{/}">Home</a>
-    <li><a th:href="@{/tasks}">Overzicht taken</a></li>
+    <a th:href="@{/}">Home</a>
+    <br>
+    <a th:href="@{/tasks}">Overzicht taken</a>
 </ul>
+<br>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>
-
+<br>
 
 <form th:method="post" th:object="${taak}" th:action="@{/tasks/new}">
     <div>

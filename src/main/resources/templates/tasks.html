@@ -7,8 +7,10 @@
 <body>
 <h1>Taken</h1>
 <ul>
-    <li><a th:href="@{/}">Home</a>
-    <li><a sec:authorize-url="/task/new" th:href="@{/tasks/new}">Voeg Taak toe</a></li>
+    <a th:href="@{/}">Home</a>
+    <br>
+    <a sec:authorize-url="/tasks/new" th:href="@{/tasks/new}">Voeg Taak toe</a>
+    <br>
 </ul>
 <table>
     <div th:if="${!tasks.isEmpty()}">
@@ -24,12 +26,13 @@
         <td th:text="*{taak.taak}"></td>
         <td th:text="*{taak.datum}"></td>
         <td th:text="*{taak.tijd}"></td>
-        <td><a th:href="@{/tasks/{id}/sub/create (id=${taak.id})}">creëer subtask</a></td>
+        <td><a sec:authorize-url="/tasks/new" th:href="@{/tasks/{id}/sub/create (id=${taak.id})}">creëer subtask</a></td>
     </tr>
     </tbody>
     </div>
     <p th:if="${tasks.isEmpty()}">No tasks left to do</p>
 </table>
+<br>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>

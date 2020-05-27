@@ -7,9 +7,12 @@
 <body>
 <h1>Taak Detail</h1>
     <ul>
-        <li><a th:href="@{/}">Home</a>
-        <li><a th:href="@{/tasks}">Overzicht taken</a></li>
-        <a sec:authorize-url="/task/new" th:href="@{/tasks/new}">Voeg Taak toe</a>
+        <a th:href="@{/}">Home</a>
+        <br>
+        <a th:href="@{/tasks}">Overzicht taken</a>
+        <br>
+        <a sec:authorize-url="/tasks/new" th:href="@{/tasks/new}">Voeg Taak toe</a>
+        <br>
     </ul>
 <table>
 
@@ -47,6 +50,7 @@
 
     <p th:if="${taskdetails == null}">Task not Found</p>
 </table>
+<br>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>

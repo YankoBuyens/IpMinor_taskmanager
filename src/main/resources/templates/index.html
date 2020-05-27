@@ -7,10 +7,11 @@
 <body>
 <h1>Index Pagina</h1>
 <ul>
-    <li><a th:href="@{/tasks}">Overzicht taken</a></li>
-    <li><a sec:authorize-url="/task/new" th:href="@{/tasks/new}">Voeg Taak toe</a></li>
+    <a th:href="@{/tasks}">Overzicht taken</a>
+    <br>
+    <a sec:authorize-url="/tasks/new" th:href="@{/tasks/new}">Voeg Taak toe</a>
 </ul>
-<a sec:authorize-url="/task/new" th:href="@{/tasks/new}">Voeg Taak toe</a>
+<br>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>

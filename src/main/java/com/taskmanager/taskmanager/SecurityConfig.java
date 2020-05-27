@@ -10,7 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig  extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
@@ -24,17 +24,20 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .mvcMatchers("/signup").permitAll()
                 .mvcMatchers("/jdbc:h2:mem:taak").hasAuthority("ADMIN")
-                .mvcMatchers("tasks/new").hasAuthority("ADMIN")
-                .mvcMatchers("tasks/update/{id}").hasAuthority("ADMIN")
-                .mvcMatchers("tasks/update").hasAuthority("ADMIN")
-                .mvcMatchers("tasks/{id}/sub/create").hasAuthority("ADMIN")
-                .mvcMatchers("tasks/subtaak").hasAuthority("ADMIN")
+                .antMatchers("/h2-console/**").hasRole("ADMIN")
+                .mvcMatchers("/h2-console").hasAuthority("ADMIN")
+                .mvcMatchers("/tasks/new").hasAuthority("ADMIN")
+                .mvcMatchers("/tasks/update/{id}").hasAuthority("ADMIN")
+                .mvcMatchers("/tasks/update").hasAuthority("ADMIN")
+                .mvcMatchers("/tasks/{id}/sub/create").hasAuthority("ADMIN")
+                .mvcMatchers("/tasks/subtaak").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
                 .and()
-                .logout().permitAll();
+                .logout().permitAll()
+                .and().csrf().ignoringAntMatchers("/h2-console/**");
     }
 
     @Override
