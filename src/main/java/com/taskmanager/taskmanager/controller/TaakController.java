@@ -5,10 +5,14 @@ import com.taskmanager.taskmanager.model.dto.TaakDTO;
 import com.taskmanager.taskmanager.model.service.TaakService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -72,5 +76,4 @@ public class TaakController {
         taakService.addSubTaak(subTaakDTO);
         return "redirect:/tasks/" + subTaakDTO.getId();
     }
-
 }

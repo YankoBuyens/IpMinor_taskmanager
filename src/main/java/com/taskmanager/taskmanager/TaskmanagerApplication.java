@@ -17,4 +17,6 @@ public class TaskmanagerApplication {
 	public PasswordEncoder passwordEncoder() {
 		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
 	}
+
+
 }

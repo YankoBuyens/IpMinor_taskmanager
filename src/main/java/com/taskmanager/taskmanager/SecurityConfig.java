@@ -8,24 +8,28 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.sql.DataSource;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
+    private final DataSource dataSource;
 
-    public SecurityConfig(UserService userService, PasswordEncoder passwordEncoder) {
+    public SecurityConfig(UserService userService, PasswordEncoder passwordEncoder, DataSource dataSource) {
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
+        this.dataSource = dataSource;
     }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .mvcMatchers("/signup").permitAll()
                 .mvcMatchers("/jdbc:h2:mem:taak").hasAuthority("ADMIN")
-                .antMatchers("/h2-console/**").hasRole("ADMIN")
-                .mvcMatchers("/h2-console").hasAuthority("ADMIN")
+                .mvcMatchers("/h2-console/**").hasAuthority("ADMIN")
                 .mvcMatchers("/tasks/new").hasAuthority("ADMIN")
                 .mvcMatchers("/tasks/update/{id}").hasAuthority("ADMIN")
                 .mvcMatchers("/tasks/update").hasAuthority("ADMIN")
@@ -37,12 +41,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login").permitAll()
                 .and()
                 .logout().permitAll()
-                .and().csrf().ignoringAntMatchers("/h2-console/**");
+                .and().csrf().ignoringAntMatchers("/h2-console/**")
+                .and().headers().frameOptions().disable();
     }
+
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService)
                 .passwordEncoder(passwordEncoder);
+        auth.jdbcAuthentication()
+                .dataSource(dataSource);
     }
 }
