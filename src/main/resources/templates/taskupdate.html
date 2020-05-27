@@ -15,10 +15,6 @@
     <a sec:authorize-url="/tasks/new" th:href="@{/tasks/new}">Voeg Taak toe</a>
 </ul>
 <br>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
-<br>
 <div th:if="${updateTaak != null}">
 <form th:method="post" th:object="${updateTaak}" th:action="@{/tasks/update}">
     <div>
@@ -42,5 +38,10 @@
 </form>
 </div>
 <p th:if="${updateTaak == null}">Task not excist</p>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+<br>
 </body>
 </html>

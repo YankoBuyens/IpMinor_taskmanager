@@ -13,10 +13,6 @@
     <a th:href="@{/tasks}">Overzicht taken</a>
 </ul>
 <br>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
-<br>
 
 <form th:method="post" th:object="${taak}" th:action="@{/tasks/new}">
     <div>
@@ -36,6 +32,11 @@
         <input type="time"  th:field="*{tijd}" name="tijd" id="tijd">
     </div>
     <input type="submit" value="New Taak">
+</form>
+
+<br>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
 </form>
 </body>
 </html>
