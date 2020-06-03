@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-@Service
+@Service("TaskService")
 public class TaakServicelmpl implements TaakService{
 
     private final TaakRepository taakRepository;
